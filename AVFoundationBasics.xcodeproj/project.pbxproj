@@ -24,6 +24,7 @@
 		A2A0ACEC2C64EF43001FCFC3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A0ACEB2C64EF43001FCFC3 /* StringExtension.swift */; };
 		A2A0ACEE2C64F470001FCFC3 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = A2A0ACED2C64F470001FCFC3 /* Readme.md */; };
 		A2A0ACF02C64F4C7001FCFC3 /* LICENSE in Sources */ = {isa = PBXBuildFile; fileRef = A2A0ACEF2C64F4C7001FCFC3 /* LICENSE */; };
+		A2A0ACF32C652AFA001FCFC3 /* PlaybackVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A0ACF22C652AFA001FCFC3 /* PlaybackVideoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		A2A0ACEB2C64EF43001FCFC3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A2A0ACED2C64F470001FCFC3 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		A2A0ACEF2C64F4C7001FCFC3 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A2A0ACF22C652AFA001FCFC3 /* PlaybackVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackVideoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		A2A0ACAE2C64E7C2001FCFC3 /* AVFoundationBasics */ = {
 			isa = PBXGroup;
 			children = (
+				A2A0ACF12C652AE8001FCFC3 /* Playback */,
 				A2A0ACE52C64E929001FCFC3 /* Model */,
 				A2A0ACAF2C64E7C2001FCFC3 /* AppDelegate.swift */,
 				A2A0ACB12C64E7C2001FCFC3 /* SceneDelegate.swift */,
@@ -124,9 +127,7 @@
 				A2A0ACBA2C64E7C4001FCFC3 /* LaunchScreen.storyboard */,
 				A2A0ACBD2C64E7C4001FCFC3 /* Info.plist */,
 				A2A0ACDF2C64E806001FCFC3 /* ChoiceViewController.swift */,
-				A2A0ACE12C64E83B001FCFC3 /* PlaybackListController.swift */,
 				A2A0ACE32C64E85F001FCFC3 /* PublicData.json */,
-				A2A0ACE92C64ED74001FCFC3 /* MediaItemCell.swift */,
 				A2A0ACEB2C64EF43001FCFC3 /* StringExtension.swift */,
 			);
 			path = AVFoundationBasics;
@@ -155,6 +156,16 @@
 				A2A0ACE62C64E97D001FCFC3 /* ModelFile.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A2A0ACF12C652AE8001FCFC3 /* Playback */ = {
+			isa = PBXGroup;
+			children = (
+				A2A0ACE92C64ED74001FCFC3 /* MediaItemCell.swift */,
+				A2A0ACE12C64E83B001FCFC3 /* PlaybackListController.swift */,
+				A2A0ACF22C652AFA001FCFC3 /* PlaybackVideoController.swift */,
+			);
+			path = Playback;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +305,7 @@
 				A2A0ACB42C64E7C2001FCFC3 /* ViewController.swift in Sources */,
 				A2A0ACB02C64E7C2001FCFC3 /* AppDelegate.swift in Sources */,
 				A2A0ACB22C64E7C2001FCFC3 /* SceneDelegate.swift in Sources */,
+				A2A0ACF32C652AFA001FCFC3 /* PlaybackVideoController.swift in Sources */,
 				A2A0ACEE2C64F470001FCFC3 /* Readme.md in Sources */,
 				A2A0ACEC2C64EF43001FCFC3 /* StringExtension.swift in Sources */,
 				A2A0ACEA2C64ED74001FCFC3 /* MediaItemCell.swift in Sources */,

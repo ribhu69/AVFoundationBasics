@@ -25,7 +25,6 @@ class MediaItemCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.numberOfLines = 1
-        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -34,10 +33,12 @@ class MediaItemCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
-        label.textColor = .darkGray
+        label.textColor = .secondaryLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,6 +48,9 @@ class MediaItemCell: UITableViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)
         
+        titleLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+        descriptionLabel.setContentHuggingPriority(.required, for: .vertical)
         // Set up constraints for the labels
         NSLayoutConstraint.activate([
             
@@ -54,7 +58,6 @@ class MediaItemCell: UITableViewCell {
             thumbnail.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 16),
             thumbnail.bottomAnchor.constraint(equalTo: contentView.bottomAnchor , constant: -16),
             thumbnail.widthAnchor.constraint(equalToConstant: 50),
-            thumbnail.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             titleLabel.leadingAnchor.constraint(equalTo: thumbnail.trailingAnchor, constant: 8),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),

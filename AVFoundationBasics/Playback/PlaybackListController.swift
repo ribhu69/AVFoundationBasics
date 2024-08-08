@@ -24,6 +24,8 @@ class PlaybackListController: UIViewController, UITableViewDataSource, UITableVi
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(MediaItemCell.self, forCellReuseIdentifier: "MediaItemCell")
         
         view.addSubview(tableView)
@@ -84,6 +86,8 @@ class PlaybackListController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // Handle
+        let playBackViewController = PlaybackVideoController()
+        playBackViewController.configurePlayer(with: mediaItems[indexPath.row])
+        navigationController?.pushViewController(playBackViewController, animated: true)
     }
 }

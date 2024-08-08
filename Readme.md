@@ -6,10 +6,14 @@ This project is dedicated to exploring the basics of Apple's AVFoundation framew
 
 AVFoundation is a powerful framework for working with time-based audiovisual media on Apple platforms. This project demonstrates fundamental concepts and common tasks you can perform with AVFoundation, such as:
 
+(To be added)
 - Playing audio and video files
 - Capturing media using the device’s camera
 - Handling various media formats
 - Basic media editing
+
+(Currently supported)
+- Rendering list of data for streaming.
 
 ## Project Structure
 
@@ -37,8 +41,8 @@ AVFoundation is a powerful framework for working with time-based audiovisual med
 2. Open the project in Xcode:
 
     ```bash
-    cd AVFoundation-Basics
-    open AVFoundation-Basics.xcodeproj
+    cd AVFoundationBasics
+    open AVFoundationBasics.xcodeproj
     ```
 
 3. Build and run the project on a simulator or a real device.
@@ -46,7 +50,6 @@ AVFoundation is a powerful framework for working with time-based audiovisual med
 ### Usage
 
 - **Playback Media**: The `PlaybackListController` provides a list of media items from the `PublicData.json` file. Select an item to play it.
-- **Capture Media**: Choose the "Camera" option to access the device’s camera and capture photos or videos.
 
 ## Contributing
 

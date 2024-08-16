@@ -32,7 +32,11 @@ class MediaItemCell: UITableViewCell {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
+        
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.8
         label.numberOfLines = 0
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textColor = .secondaryLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -55,8 +59,9 @@ class MediaItemCell: UITableViewCell {
         NSLayoutConstraint.activate([
             
             thumbnail.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            thumbnail.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 16),
-            thumbnail.bottomAnchor.constraint(equalTo: contentView.bottomAnchor , constant: -16),
+            thumbnail.topAnchor.constraint(lessThanOrEqualTo: contentView.topAnchor , constant: 16),
+            thumbnail.bottomAnchor.constraint(greaterThanOrEqualTo: contentView.bottomAnchor , constant: -16),
+            thumbnail.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             thumbnail.widthAnchor.constraint(equalToConstant: 50),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             titleLabel.leadingAnchor.constraint(equalTo: thumbnail.trailingAnchor, constant: 8),

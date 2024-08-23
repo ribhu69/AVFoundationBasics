@@ -8,11 +8,11 @@ AVFoundation is a powerful framework for working with time-based audiovisual med
 
 (To be added)
 - Playing audio and video files
-- Capturing media using the device’s camera
 - Handling various media formats
 - Basic media editing
 
 (Currently supported)
+- Capturing image using camera.
 - Rendering list of data for streaming.
 
 ## Project Structure

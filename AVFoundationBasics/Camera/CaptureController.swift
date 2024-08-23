@@ -15,30 +15,26 @@ protocol CaptureControllerDelegate: AnyObject {
 class CaptureController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     
+    var currentCameraPosition: AVCaptureDevice.Position = .back
     weak var delegate: CaptureControllerDelegate?
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var photoOutput: AVCapturePhotoOutput!
+    var activityIndicator : UIActivityIndicatorView!
+    var containerView = UIView()
+    var cameraFlipImage = UIImageView(image: UIImage(named: "cameraSwitch"))
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    /// This method sets up the captureSession, input and output layer, along with the preview layer which takes a captureSession as the parameter. Finally we add this as a layer to the view.
+    func setupIO() {
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(named: "cancel")?.withRenderingMode(.alwaysTemplate).withTintColor(.lightGray),
-            style: .plain,
-            target: self,
-            action: #selector(dismissView)
-        )
-        // Initialize capture session
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .photo
-        
-        // Set up the camera as the input device
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
             print("No camera available")
             return
         }
         
+        /// setting up the input capturing device, and then if possible adding it to the captureSession
         do {
             let videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
             
@@ -53,7 +49,8 @@ class CaptureController: UIViewController, AVCapturePhotoCaptureDelegate {
             return
         }
         
-        // Set up the photo output
+        /// setting up the output rendering component, and then if possible adding it to the captureSession
+
         photoOutput = AVCapturePhotoOutput()
         if captureSession.canAddOutput(photoOutput) {
             captureSession.addOutput(photoOutput)
@@ -62,14 +59,25 @@ class CaptureController: UIViewController, AVCapturePhotoCaptureDelegate {
             return
         }
         
-        // Set up the preview layer
+        /// Set up the preview layer that shows the preview. We load it with our session.
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.frame = view.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
         
+        captureSession.startRunning()
+    }
+    
+    /// This method adds other elements to the UI Which we need.
+    func setupOtherUIElements() {
+        activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
-        // Add a capture button
+        containerView.backgroundColor = .black.withAlphaComponent(0.4)
+        view.addSubview(containerView)
+        
+        view.addSubview(activityIndicator)
+        
         let captureButton = UIButton()
         captureButton.layer.cornerRadius = 35
         captureButton.backgroundColor = .lightGray
@@ -77,18 +85,86 @@ class CaptureController: UIViewController, AVCapturePhotoCaptureDelegate {
         captureButton.layer.borderColor = UIColor.white.cgColor
         captureButton.translatesAutoresizingMaskIntoConstraints = false
         captureButton.addTarget(self, action: #selector(didTapCaptureButton), for: .touchUpInside)
-        view.addSubview(captureButton)
+        containerView.addSubview(captureButton)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+
+        
+        cameraFlipImage.translatesAutoresizingMaskIntoConstraints = false
+        cameraFlipImage.contentMode = .scaleAspectFit
+        cameraFlipImage.isUserInteractionEnabled = true
+        
+        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(flipCamera))
+        cameraFlipImage.addGestureRecognizer(tapgesture)
+        containerView.addSubview(cameraFlipImage)
+    
         
         NSLayoutConstraint.activate([
             
-            captureButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            captureButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.widthAnchor.constraint(equalToConstant: 25),
+            activityIndicator.heightAnchor.constraint(equalToConstant: 25),
+            captureButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            captureButton.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            captureButton.topAnchor.constraint(equalTo: containerView.topAnchor,constant: 16),
+        
             captureButton.widthAnchor.constraint(equalToConstant: 70),
             captureButton.heightAnchor.constraint(equalToConstant: 70),
+            
+            cameraFlipImage.trailingAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.trailingAnchor, constant: -32),
+            cameraFlipImage.widthAnchor.constraint(equalToConstant: 50),
+            cameraFlipImage.centerYAnchor.constraint(equalTo: captureButton.centerYAnchor)
+            
         ])
-        // Start the capture session
-        captureSession.startRunning()
+        
+        activityIndicator.isHidden = true
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "cancel")?.withRenderingMode(.alwaysTemplate).withTintColor(.lightGray),
+            style: .plain,
+            target: self,
+            action: #selector(dismissView)
+        )
+        
+        setupIO()
+        setupOtherUIElements()
+    }
+    
+    @objc func flipCamera(sender: UIImageView) {
+        guard let currentInput = captureSession.inputs.first as? AVCaptureDeviceInput else { return }
+        captureSession.beginConfiguration()
+        
+        // Remove the current input
+        captureSession.removeInput(currentInput)
+        
+        // Toggle the camera position
+        currentCameraPosition = (currentCameraPosition == .back) ? .front : .back
+        
+        // Get the new camera
+        let newCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: currentCameraPosition)
+        
+        do {
+            let newInput = try AVCaptureDeviceInput(device: newCamera!)
+            
+            // Add the new input
+            if captureSession.canAddInput(newInput) {
+                captureSession.addInput(newInput)
+            }
+        } catch {
+            print("Error switching cameras: \(error)")
+        }
+        
+        captureSession.commitConfiguration()
+    }
+
     
     @objc func dismissView() {
         dismiss(animated: true)
@@ -98,12 +174,18 @@ class CaptureController: UIViewController, AVCapturePhotoCaptureDelegate {
         let settings = AVCapturePhotoSettings()
         settings.flashMode = .auto
         photoOutput.capturePhoto(with: settings, delegate: self)
+        
+        
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
     }
     
     // AVCapturePhotoCaptureDelegate method
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard let imageData = photo.fileDataRepresentation() else { return }
         let image = UIImage(data: imageData)
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
         delegate?.capturedPhoto(image: image)
         dismiss(animated: true)
     }

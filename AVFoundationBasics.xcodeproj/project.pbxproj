@@ -25,6 +25,8 @@
 		A2A0ACEE2C64F470001FCFC3 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = A2A0ACED2C64F470001FCFC3 /* Readme.md */; };
 		A2A0ACF02C64F4C7001FCFC3 /* LICENSE in Sources */ = {isa = PBXBuildFile; fileRef = A2A0ACEF2C64F4C7001FCFC3 /* LICENSE */; };
 		A2A0ACF32C652AFA001FCFC3 /* PlaybackVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A0ACF22C652AFA001FCFC3 /* PlaybackVideoController.swift */; };
+		A2ACC0522C78BE1000DD9E04 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ACC0512C78BE1000DD9E04 /* CameraViewController.swift */; };
+		A2ACC0542C78C27900DD9E04 /* CaptureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ACC0532C78C27900DD9E04 /* CaptureController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		A2A0ACED2C64F470001FCFC3 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		A2A0ACEF2C64F4C7001FCFC3 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A2A0ACF22C652AFA001FCFC3 /* PlaybackVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackVideoController.swift; sourceTree = "<group>"; };
+		A2ACC0512C78BE1000DD9E04 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		A2ACC0532C78C27900DD9E04 /* CaptureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 		A2A0ACAE2C64E7C2001FCFC3 /* AVFoundationBasics */ = {
 			isa = PBXGroup;
 			children = (
+				A2ACC0502C78BE0600DD9E04 /* Camera */,
 				A2A0ACF12C652AE8001FCFC3 /* Playback */,
 				A2A0ACE52C64E929001FCFC3 /* Model */,
 				A2A0ACAF2C64E7C2001FCFC3 /* AppDelegate.swift */,
@@ -166,6 +171,15 @@
 				A2A0ACF22C652AFA001FCFC3 /* PlaybackVideoController.swift */,
 			);
 			path = Playback;
+			sourceTree = "<group>";
+		};
+		A2ACC0502C78BE0600DD9E04 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				A2ACC0512C78BE1000DD9E04 /* CameraViewController.swift */,
+				A2ACC0532C78C27900DD9E04 /* CaptureController.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,8 +315,10 @@
 			files = (
 				A2A0ACE22C64E83B001FCFC3 /* PlaybackListController.swift in Sources */,
 				A2A0ACF02C64F4C7001FCFC3 /* LICENSE in Sources */,
+				A2ACC0542C78C27900DD9E04 /* CaptureController.swift in Sources */,
 				A2A0ACE42C64E85F001FCFC3 /* PublicData.json in Sources */,
 				A2A0ACB42C64E7C2001FCFC3 /* ViewController.swift in Sources */,
+				A2ACC0522C78BE1000DD9E04 /* CameraViewController.swift in Sources */,
 				A2A0ACB02C64E7C2001FCFC3 /* AppDelegate.swift in Sources */,
 				A2A0ACB22C64E7C2001FCFC3 /* SceneDelegate.swift in Sources */,
 				A2A0ACF32C652AFA001FCFC3 /* PlaybackVideoController.swift in Sources */,
@@ -487,6 +503,8 @@
 				DEVELOPMENT_TEAM = 4G9L8BJP6U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AVFoundationBasics/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs to use camera for capturing photos and videos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Used to show your captured photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -514,6 +532,8 @@
 				DEVELOPMENT_TEAM = 4G9L8BJP6U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AVFoundationBasics/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs to use camera for capturing photos and videos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Used to show your captured photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

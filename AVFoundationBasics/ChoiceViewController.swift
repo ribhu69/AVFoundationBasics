@@ -11,6 +11,7 @@ class ChoiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .systemBackground
         // Set the title for the ViewController
         self.title = "Choices"
 
@@ -21,9 +22,19 @@ class ChoiceViewController: UIViewController {
 
         // Register a UITableViewCell for use
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ChoiceCell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
 
         // Add the TableView to the ViewController's view
         self.view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+        
     }
 }
 
@@ -51,7 +62,7 @@ extension ChoiceViewController: UITableViewDelegate, UITableViewDataSource {
         // Handle navigation or actions based on the selected choice
         switch selectedChoice {
         case "Camera":
-             print("Yet to explore Camera Libraries")
+            navigationController?.pushViewController(CameraViewController(), animated: true)
         case "Playback":
             navigationController?.pushViewController(PlaybackListController(), animated: true)
             break

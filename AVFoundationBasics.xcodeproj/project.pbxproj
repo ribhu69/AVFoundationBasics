@@ -27,6 +27,17 @@
 		A2A0ACF32C652AFA001FCFC3 /* PlaybackVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A0ACF22C652AFA001FCFC3 /* PlaybackVideoController.swift */; };
 		A2ACC0522C78BE1000DD9E04 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ACC0512C78BE1000DD9E04 /* CameraViewController.swift */; };
 		A2ACC0542C78C27900DD9E04 /* CaptureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ACC0532C78C27900DD9E04 /* CaptureController.swift */; };
+		AA00000000000000000000A2 /* CodeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000A1 /* CodeSheetViewController.swift */; };
+		AA00000000000000000000B2 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000B1 /* AudioPlayerViewController.swift */; };
+		AA00000000000000000000C2 /* AudioRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000C1 /* AudioRecorderViewController.swift */; };
+		AA00000000000000000000D2 /* AudioSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000D1 /* AudioSessionViewController.swift */; };
+		AA00000000000000000000E2 /* TextToSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000E1 /* TextToSpeechViewController.swift */; };
+		AA00000000000000000000F2 /* AssetInspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000F1 /* AssetInspectorViewController.swift */; };
+		AA00000000000000000001A2 /* AudioPlayerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000001A1 /* AudioPlayerSwiftUIView.swift */; };
+		AA00000000000000000001B2 /* AudioRecorderSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000001B1 /* AudioRecorderSwiftUIView.swift */; };
+		AA00000000000000000001C2 /* AudioSessionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000001C1 /* AudioSessionSwiftUIView.swift */; };
+		AA00000000000000000001D2 /* TextToSpeechSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000001D1 /* TextToSpeechSwiftUIView.swift */; };
+		AA00000000000000000001E2 /* AssetInspectorSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000001E1 /* AssetInspectorSwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +81,17 @@
 		A2A0ACF22C652AFA001FCFC3 /* PlaybackVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackVideoController.swift; sourceTree = "<group>"; };
 		A2ACC0512C78BE1000DD9E04 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		A2ACC0532C78C27900DD9E04 /* CaptureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureController.swift; sourceTree = "<group>"; };
+		AA00000000000000000000A1 /* CodeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSheetViewController.swift; sourceTree = "<group>"; };
+		AA00000000000000000000B1 /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
+		AA00000000000000000000C1 /* AudioRecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderViewController.swift; sourceTree = "<group>"; };
+		AA00000000000000000000D1 /* AudioSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionViewController.swift; sourceTree = "<group>"; };
+		AA00000000000000000000E1 /* TextToSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechViewController.swift; sourceTree = "<group>"; };
+		AA00000000000000000000F1 /* AssetInspectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInspectorViewController.swift; sourceTree = "<group>"; };
+		AA00000000000000000001A1 /* AudioPlayerSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerSwiftUIView.swift; sourceTree = "<group>"; };
+		AA00000000000000000001B1 /* AudioRecorderSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderSwiftUIView.swift; sourceTree = "<group>"; };
+		AA00000000000000000001C1 /* AudioSessionSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionSwiftUIView.swift; sourceTree = "<group>"; };
+		AA00000000000000000001D1 /* TextToSpeechSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechSwiftUIView.swift; sourceTree = "<group>"; };
+		AA00000000000000000001E1 /* AssetInspectorSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInspectorSwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +146,11 @@
 			children = (
 				A2ACC0502C78BE0600DD9E04 /* Camera */,
 				A2A0ACF12C652AE8001FCFC3 /* Playback */,
+				AA00000000000000000002B1 /* Audio */,
+				AA00000000000000000002C1 /* Speech */,
+				AA00000000000000000002D1 /* Metadata */,
+				AA00000000000000000002E1 /* SwiftUI */,
+				AA00000000000000000002A1 /* Shared */,
 				A2A0ACE52C64E929001FCFC3 /* Model */,
 				A2A0ACAF2C64E7C2001FCFC3 /* AppDelegate.swift */,
 				A2A0ACB12C64E7C2001FCFC3 /* SceneDelegate.swift */,
@@ -180,6 +207,52 @@
 				A2ACC0532C78C27900DD9E04 /* CaptureController.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000002A1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000A1 /* CodeSheetViewController.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000002B1 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000B1 /* AudioPlayerViewController.swift */,
+				AA00000000000000000000C1 /* AudioRecorderViewController.swift */,
+				AA00000000000000000000D1 /* AudioSessionViewController.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000002C1 /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000E1 /* TextToSpeechViewController.swift */,
+			);
+			path = Speech;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000002D1 /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000F1 /* AssetInspectorViewController.swift */,
+			);
+			path = Metadata;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000002E1 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000001A1 /* AudioPlayerSwiftUIView.swift */,
+				AA00000000000000000001B1 /* AudioRecorderSwiftUIView.swift */,
+				AA00000000000000000001C1 /* AudioSessionSwiftUIView.swift */,
+				AA00000000000000000001D1 /* TextToSpeechSwiftUIView.swift */,
+				AA00000000000000000001E1 /* AssetInspectorSwiftUIView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +400,17 @@
 				A2A0ACEA2C64ED74001FCFC3 /* MediaItemCell.swift in Sources */,
 				A2A0ACE72C64E97D001FCFC3 /* ModelFile.swift in Sources */,
 				A2A0ACE02C64E806001FCFC3 /* ChoiceViewController.swift in Sources */,
+				AA00000000000000000000A2 /* CodeSheetViewController.swift in Sources */,
+				AA00000000000000000000B2 /* AudioPlayerViewController.swift in Sources */,
+				AA00000000000000000000C2 /* AudioRecorderViewController.swift in Sources */,
+				AA00000000000000000000D2 /* AudioSessionViewController.swift in Sources */,
+				AA00000000000000000000E2 /* TextToSpeechViewController.swift in Sources */,
+				AA00000000000000000000F2 /* AssetInspectorViewController.swift in Sources */,
+				AA00000000000000000001A2 /* AudioPlayerSwiftUIView.swift in Sources */,
+				AA00000000000000000001B2 /* AudioRecorderSwiftUIView.swift in Sources */,
+				AA00000000000000000001C2 /* AudioSessionSwiftUIView.swift in Sources */,
+				AA00000000000000000001D2 /* TextToSpeechSwiftUIView.swift in Sources */,
+				AA00000000000000000001E2 /* AssetInspectorSwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
